@@ -3,8 +3,11 @@
   "private": true,
   "author": "Vaadin Ltd",
   "license": "Apache-2.0",
+  "type": "module",
   "scripts": {
+    "build": "rimraf dist && rollup -c",
     "lint": "eslint src",
+    "serve": "web-dev-server --app-index dist/index.html --open",
     "start": "web-dev-server --node-resolve --app-index index.html --open"
   },
   "dependencies": {
@@ -24,10 +27,17 @@
     "lit": "^2.7.5"
   },
   "devDependencies": {
+    "@rollup/plugin-dynamic-import-vars": "^2.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
     "@web/dev-server": "^0.2.3",
+    "@web/rollup-plugin-copy": "^0.4.0",
+    "@web/rollup-plugin-html": "^2.0.0",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.25.3"
   }
 }
