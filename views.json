@@ -1,0 +1,42 @@
+[
+  {
+    "path": "button",
+    "type": "control",
+    "title": "Button"
+  },
+  {
+    "path": "checkbox",
+    "type": "control",
+    "title": "Checkbox"
+  },
+  {
+    "path": "email-field",
+    "type": "field",
+    "title": "Email Field"
+  },
+  {
+    "path": "list-box",
+    "type": "control",
+    "title": "List Box"
+  },
+  {
+    "path": "number-field",
+    "type": "field",
+    "title": "Number Field"
+  },
+  {
+    "path": "password-field",
+    "type": "field",
+    "title": "Password Field"
+  },
+  {
+    "path": "radio-group",
+    "type": "control",
+    "title": "Radio Group"
+  },
+  {
+    "path": "text-field",
+    "type": "field",
+    "title": "Text Field"
+  }
+]
