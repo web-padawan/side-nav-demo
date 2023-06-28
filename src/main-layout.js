@@ -47,6 +47,8 @@ export class MainLayout extends LitElement {
   render() {
     const controls = this.views.filter(({ type }) => type === 'control');
     const fields = this.views.filter(({ type }) => type === 'field');
+    const pickers = this.views.filter(({ type }) => type === 'picker');
+    const interaction = this.views.filter(({ type }) => type === 'interaction');
     const { pathname } = location;
 
     return html`
@@ -56,11 +58,35 @@ export class MainLayout extends LitElement {
         </header>
         <aside slot="drawer">
           <vaadin-side-nav>
-            <span slot="label">Components</span>
-            <vaadin-side-nav-item
-              ?expanded="${pathname === '/' || controls.some(({ path }) => pathname === `/${path}`)}"
-            >
-            <vaadin-icon slot="prefix" icon="lumo:cog"></vaadin-icon>
+            <span slot="label">Data Entry</span>
+            <vaadin-side-nav-item ?expanded="${fields.some(({ path }) => pathname === `/${path}`)}">
+              <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
+              <span>Fields</span>
+              ${fields.map(
+                (viewRoute) => html`
+                  <vaadin-side-nav-item slot="children" path=${router.urlForPath(viewRoute.path)}>
+                    ${viewRoute.title}
+                  </vaadin-side-nav-item>
+                `,
+              )}
+            </vaadin-side-nav-item>
+            <vaadin-side-nav-item ?expanded="${pickers.some(({ path }) => pathname === `/${path}`)}">
+              <vaadin-icon slot="prefix" icon="lumo:calendar"></vaadin-icon>
+              <span>Pickers</span>
+              ${pickers.map(
+                (viewRoute) => html`
+                  <vaadin-side-nav-item slot="children" path=${router.urlForPath(viewRoute.path)}>
+                    ${viewRoute.title}
+                  </vaadin-side-nav-item>
+                `,
+              )}
+            </vaadin-side-nav-item>
+          </vaadin-side-nav>
+          <hr />
+          <vaadin-side-nav collapsible>
+            <span slot="label">Interaction</span>
+            <vaadin-side-nav-item ?expanded="${controls.some(({ path }) => pathname === `/${path}`)}">
+              <vaadin-icon slot="prefix" icon="lumo:cog"></vaadin-icon>
               <span>Controls</span>
               ${controls.map(
                 (viewRoute) => html`
@@ -70,10 +96,12 @@ export class MainLayout extends LitElement {
                 `,
               )}
             </vaadin-side-nav-item>
-            <vaadin-side-nav-item ?expanded="${fields.some(({ path }) => pathname === `/${path}`)}">
+            <vaadin-side-nav-item
+              ?expanded="${pathname === '/' || interaction.some(({ path }) => pathname === `/${path}`)}"
+            >
               <vaadin-icon slot="prefix" icon="lumo:edit"></vaadin-icon>
-              <span>Fields</span>
-              ${fields.map(
+              <span>Interaction</span>
+              ${interaction.map(
                 (viewRoute) => html`
                   <vaadin-side-nav-item slot="children" path=${router.urlForPath(viewRoute.path)}>
                     ${viewRoute.title}

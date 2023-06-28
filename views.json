@@ -1,5 +1,10 @@
 [
   {
+    "path": "accordion",
+    "type": "interaction",
+    "title": "Accordion"
+  },
+  {
     "path": "button",
     "type": "control",
     "title": "Button"
@@ -8,6 +13,16 @@
     "path": "checkbox",
     "type": "control",
     "title": "Checkbox"
+  },
+  {
+    "path": "date-picker",
+    "type": "picker",
+    "title": "Date Picker"
+  },
+  {
+    "path": "details",
+    "type": "interaction",
+    "title": "Details"
   },
   {
     "path": "email-field",
@@ -35,8 +50,18 @@
     "title": "Radio Group"
   },
   {
+    "path": "tabs",
+    "type": "interaction",
+    "title": "Tabs"
+  },
+  {
     "path": "text-field",
     "type": "field",
     "title": "Text Field"
+  },
+  {
+    "path": "time-picker",
+    "type": "picker",
+    "title": "Time Picker"
   }
 ]
